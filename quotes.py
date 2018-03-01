@@ -1,3 +1,10 @@
+# quote dalam sequence, lalu di random. customizable . Bisa dipakai di banner terminal linux.
+#
+# cara menampilkan banner di terminal linux.
+# 1 copy quotes.py ke ~ (home dir linux)
+# 2 tambahkan "python ~/quotes.py" di paling bawah .bashrc (buka .bashrc di direktori home dir)
+# 3 di test. Buka terminal
+
 import random
 
 quotes = ("""Our little systems have their day

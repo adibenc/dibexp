@@ -1,0 +1,225 @@
+new sheet!
+
+18092018
+learning
+django!
+
+import django
+print django.get_version()
+
+python -m django --version
+
+2 versions of python
+
+python 3 pip problem
+apt-get install python3-pip
+
+anbox
+2 dkms module which is :
+  $ sudo cp -rT ashmem /usr/src/anbox-ashmem-1
+  $ sudo cp -rT binder /usr/src/anbox-binder-1
+
+error: cannot perform the following tasks:
+- Mount snap "core" (5328) (cmd: "unsquashfs -i -d /tmp/read-file053783978/unpack /var/lib/snapd/snaps/core_5328.snap meta/snap.yaml" failed: exec: "unsquashfs": executable file not found in $PATH (""))
+
+30092018
+
+Desktop object
+
+py modules
+htlm.parser
+struct
+urllib.request
+http
+
+python oop
+inheritance class(baseclass1,baseclass2)
+9.3.4. Method Objects
+metode bisa di assign ke var by reference
+
+class Mapping:
+    def __init__(self, iterable):
+        self.items_list = []
+        self.__update(iterable)
+
+    def update(self, iterable):
+        for item in iterable:
+            self.items_list.append(item)
+
+    __update = update   # private copy of original update() method
+
+class MappingSubclass(Mapping):
+
+    def update(self, keys, values):
+        # provides new signature for update()
+        # but does not break __init__()
+        for item in zip(keys, values):
+            self.items_list.append(item)
+
+for element in [1, 2, 3]:
+    print(element)
+for element in (1, 2, 3):
+    print(element)
+for key in {'one':1, 'two':2}:
+    print(key)
+for char in "123":
+    print(char)
+for line in open("myfile.txt"):
+    print(line, end='')
+
+lambda style programming
+
+TLS
+https://tools.ietf.org/html/rfc7457
+
+01102018
+
+list.append(x for x in list)
+"".join(x for x in list)
+
+java 11
+https://en.wikipedia.org/wiki/Learning_management_system
+
+python open & automate website access
+urllib2 urllib httplib selenium
+
+https://chromedriver.storage.googleapis.com/index.html?path=2.42/
+https://github.com/mozilla/geckodriver/releases
+
+a-z python trick
+
+03102018
+sqllite_master
+
+06102018
+java free phone call by cloud infrastructure??
+
+13102018
+hash collision
+
+md5 era is end
+https://www.mscs.dal.ca/~selinger/md5collision/
+https://www.links.org/?p=6
+
+
+14102018
+
+https://allevents.in/malang
+
+15102018
+basic data structure
+dynamic vs static
+
+Untuk mahasiswa jurusan TI, apakah menurut kalian kemampuan Programming itu penting? sertakan alasan kalian
+
+Penting.
+
+Bahasan utama jurusan MIPA adalah pengetahuan alam dimana kemampuan mengamati dan mengekspresikan dalam bentuk yang ilmiah adalah wajib, karena dengan karya ilmiah sebuah penelitian akan diakui, dianggap dan dipercaya. 
+
+Bahasan utama Teknik Informatika adalah data dimana pengolahannya paling efektif menggunakan bahasa pemrograman tertentu mulai dari low level language sampai high level language, tergantung lingkup permasalahannya. Sebuah bahasa pemrograman dirancang untuk menyelesaikan masalah tertentu. 
+
+Mahasiswa TI dituntut untuk bisa mengolah data tertentu supaya bisa menjadi informasi yang berarti dan cara terbaiknya adalah dengan memiliki kemampuan programming yang cukup.
+
+
+dont build software, build solution!
+dont be programmer, be problem solver!
+
+http://projecteuler.net/
+leetcode.com
+https://practice.geeksforgeeks.org/
+http://www.ies-math.com/math/java/
+http://mathandmultimedia.com/2012/04/10/279-math-applets/
+
+jadikan statistik max min sum average! matrix -> determinan!
+faktorial
+buat program matematika level sekolah sd / smp / sma
+buat programnya, tinggal pakai
+
+copying java.lang.Math hahahahha
+
+texteditor + terminal tools (grep, awk, sed) + spreadsheet = ultraspeed textediting
+creativity + humor + knowledge + reality = problem solving
+
+bacaan ringan
+
+https://komputasi.wordpress.com/download/
+
+16102018
+it is too obvious to learn from past years
+
+https://graph-tool.skewed.de/
+
+py module
+nltk
+matplotlib
+sklearn
+python3-tk
+python-tk
+pypr
+pandas
+networkx
+
+17102018
+jupyter
+py 
+
+greatechgain
+
+18102018
+py rfm kmeans
+https://archive.ics.uci.edu/ml/datasets/Online+Retail
+http://phillipmfeldman.org/Python/discrete_event_simulation/index.html
+
+21102018
+cpp learning
+vars, basic syntax, pointers, 
+references - way to spell variable differently but still same
+
+cout
+cin
+cerr
+clog
+
+typedef struct{
+}Books;
+
+struct Book{
+vars here
+}
+
+void printBook( struct Books *book ){
+	cout << "Book title : " << book->title <<endl;
+}
+
+main(){
+struct Book book1;
+Books book2;//if using typedef it is not necessary to 
+}
+
+scope resolution operator (::) >>> double Box::getVolume(void){return 0.0;}
+public: private: protected:
+
+22102018
+>>> a=[chr(x) for x in range(65,91)]
+>>> a
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+>>> b=[chr(x) for x in range(97,123)]
+>>> a
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+>>> b
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>> c=a+b
+>>> c
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+23102018
+
+http://www.unicode.org/Public/8.0.0/ucd/UnicodeData.txt
+
+iterate commands B)
+
+for i in `seq 1 69`;do wget -np -k http://phrack.org/archives/tgz/phrack$i.tar.gz; done
+
+for i in `seq 1 69`;do mkdir ph$i && cd ph$i && tar -xvzf ../phrack$i.tar.gz && cd .. ; done
+
+binexp.payloads.txt

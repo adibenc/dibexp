@@ -1,0 +1,385 @@
+./gemastik
+./gemastik/Competition Gate - Contest - Problem - View pohon_files
+./gemastik/GEMASTIK 11 - Institut Teknologi Sepuluh Nopember_files
+./Installsrc
+./Installsrc/4linux
+./Installsrc/4linux/anbox
+./Installsrc/4linux/bless
+./Installsrc/4linux/config
+./Installsrc/4linux/debun
+./Installsrc/4linux/g++
+./Installsrc/4linux/gcc
+./Installsrc/4linux/geany
+./Installsrc/4linux/geany-1.33
+./Installsrc/4linux/httrack
+./Installsrc/4linux/i386
+./Installsrc/4linux/inkscape
+./Installsrc/4linux/jdk1.8.0_181
+./Installsrc/4linux/ruby
+./Installsrc/4linux/shs
+./Installsrc/4linux/shutter
+./Installsrc/APKs
+./Installsrc/devkit
+./Installsrc/devkit/android-std
+./Installsrc/devkit/exe
+./Installsrc/devkit/pycharm-community-2018.2.1
+./Installsrc/devkit/website
+./Installsrc/games
+./Installsrc/new
+./Installsrc/OS
+./Installsrc/OS/1804updates
+./Installsrc/OS/kali-linux-2018.2-amd64
+./Installsrc/OS/rufus
+./Installsrc/software
+./Installsrc/software/s.unidentified
+./Installsrc/customization
+./Installsrc/customization/60 Free Retro and Vintage Fonts - RetroSupply Co._files
+./Installsrc/customization/fonts
+./Installsrc/customization/jazz
+./Installsrc/customization/unsort
+./Installsrc/flags-normal
+./Installsrc/javas
+./Installsrc/regs
+./Installsrc/vital
+./Installsrc/vital/vbr
+./Installsrc/zips
+./Installsrc/zips/br
+./Installsrc/zips/codeigniter
+./Installsrc/zips/drive-download-201
+./Installsrc/zips/phsp
+./Installsrc/zips/quotes.db
+./System Volume Information
+./System Volume Information/Chkdsk
+./web
+./web/json
+./Pictures
+./Pictures/1b
+./Pictures/1d
+./Pictures/1a
+./Pictures/1g
+./Pictures/1g/gifs
+./Pictures/br3
+./Pictures/br4
+./Pictures/br5
+./Pictures/br2
+./Pictures/Photos
+./Pictures/Photos/2012
+./Pictures/Photos/2013
+./Pictures/Photos/2014
+./Pictures/Photos/2015
+./Pictures/Photos/2016
+./Pictures/Photos/2017
+./Pictures/Photos/past
+./Pictures/Photos/2011
+./Pictures/Photos/2018
+./Pictures/resources
+./Pictures/pngs
+./Pictures/1c
+./Pictures/1e
+./Pictures/1f
+./Pictures/1h
+./Pictures/1j
+./Pictures/1k
+./Pictures/1l
+./Pictures/1m
+./Pictures/1m/more
+./Pictures/1o
+./Pictures/1p
+./Pictures/1p/p
+./Pictures/1i
+./Pictures/1n
+./Pictures/1q
+./Pictures/1v
+./Pictures/1r
+./Pictures/1s
+./Pictures/1s/svgs
+./Pictures/1t
+./Pictures/1u
+./Pictures/1w
+./Pictures/1w/wallp
+./Pictures/1w/was
+./Pictures/1x
+./Pictures/1y
+./Pictures/1z
+./Pictures/br1
+./Pictures/info
+./Pictures/info/cewe
+./Pictures/jpgs
+./Pictures/l0
+./Pictures/lucu
+./play
+./play/com.programming
+./play/com.programming/Competition Gate - Contest - Public Scoreboard_files
+./play/com.programming/How to begin with Competitive Programming_ - GeeksforGeeks_files
+./play/com.programming/What coding habits improve timing in coding contest_ - GeeksforGeeks_files
+./play/community
+./play/community/Daftar Situs Hacker Indonesia _ BlogWalker_files
+./play/community/Hacking Ebook_ Tutorial Carding Bagi pemula_files
+./play/community/Information Security Training | SANS Cyber Security Certifications & Research_files
+./play/community/Link « Malang Cyber Crew_files
+./play/community/owasp jkt
+./play/community/shl
+./play/community/visam(viking sampang)_ 5 Situs Belajar Hacking Berbahasa Indonesia Terbaik_files
+./play/comp.prog
+./play/comp.prog/leetcode
+./play/comp.prog/Toeplitz Matrix - LeetCode_files
+./play/comp.prog/unsyiah
+./play/comp.prog/xinyong
+./play/crypto
+./play/crypto/cryptanalysis - Are there two known strings which have the same MD5 hash value_ - Cryptography Stack Exchange_files
+./play/crypto/Encrypt and decrypt files to public keys via the OpenSSL Command Line - Raymii.org_files
+./play/crypto/MD5 - Wikipedia_files
+./play/crypto/Morse code - Wikipedia_files
+./play/crypto/The Most Common OpenSSL Commands_files
+./play/ctf
+./play/ctf/asgama
+./play/ctf/ASGama CTF_files
+./play/ctf/berkas.adib
+./play/ctf/berkas.galuh
+./play/ctf/berkas.nofal
+./play/ctf/Bikin CTF yang bener dong, jangan malu-maluin – Amazing Grace_files
+./play/ctf/challenges.re
+./play/ctf/ctfsme
+./play/ctf/defcon2018
+./play/ctf/Dunia CTF dan CTF Tingkat Dunia – Amazing Grace_files
+./play/ctf/flareon
+./play/ctf/gemastik11
+./play/ctf/gooctf
+./play/ctf/hology
+./play/ctf/humanctf
+./play/ctf/idcc
+./play/ctf/ifest
+./play/ctf/rootme
+./play/ctf/sw.freedom. Pertemuan2 Soal Latihan Kedua
+./play/ctf/writeups
+./play/guides
+./play/guides/g.general
+./play/guides/g.net
+./play/guides/g.recon
+./play/guides/g.software
+./play/guides/phrack
+./play/hardware
+./play/Reversing
+./play/Reversing/binaries
+./play/Reversing/binexp
+./play/soceng
+./play/tools
+./play/tools/asciiart
+./play/tools/automation
+./play/tools/binwalk-master
+./play/tools/peda-master
+./play/tools/radare2-master
+./play/tools/recons
+./play/tools/t.revxbinexp
+./play/tools/t.webs
+./play/tools/InsecureProgramming-master
+./play/WebApp
+./play/WebApp/owasp
+./play/WebApp/secidiot
+./play/WebApp/system
+./play/res
+./play/res/peoples
+./play/res/tereliye
+./play/res/uin
+./Audio
+./Audio/popindo
+./Audio/popindo/ERK
+./Audio/popu
+./Audio/raphip
+./Audio/sndtrck
+./Audio/sndtrck/game
+./Audio/yea
+./Audio/1
+./Audio/1/linkinp
+./Audio/1/cld
+./Audio/1/hardindie
+./Audio/1/pop
+./Audio/1/nrt
+./Audio/2
+./Audio/Alquran
+./Audio/Alquran/Minshaari Raashid Al-Aafaasee
+./Audio/Alquran/Said Al Ghamdi
+./Audio/Alquran/Ummi Juz Amma
+./Audio/dakwah
+./Audio/f4-20
+./Audio/guitars
+./Audio/hardindipopunk
+./Audio/hardindipopunk/Lamb Of God - 2009 - Wrath
+./Audio/hardindipopunk/log
+./KULIAH
+./KULIAH/MKW
+./KULIAH/MKW/5 pmobile
+./KULIAH/MKW/7 isusosial
+./KULIAH/MKW/7 itgov
+./KULIAH/MKW/7 manpro
+./KULIAH/MKW/7 visualisasi
+./KULIAH/MKW/_past
+./KULIAH/artikel-pdidik
+./KULIAH/ASLAB
+./KULIAH/ASLAB/pbo
+./KULIAH/ASLAB/praksi
+./KULIAH/ASLAB/sister
+./KULIAH/kuliah-jadwal-jurusan
+./KULIAH/kuliah-jadwal-jurusan/beasiswa
+./KULIAH/kuliah-jadwal-jurusan/berkas
+./KULIAH/MPK
+./KULIAH/MPK/2 fiqh
+./KULIAH/pklkkm
+./KULIAH/RANGKUMAN LAPORAN KKM
+./KULIAH/referensi
+./KULIAH/referensi/komputasi-wp
+./KULIAH/SKRIPSI
+./KULIAH/SKRIPSI/etheses
+./KULIAH/SKRIPSI/graph
+./KULIAH/SKRIPSI/hoaxfilter
+./KULIAH/SKRIPSI/integrasi
+./KULIAH/SKRIPSI/machinelearning
+./KULIAH/SKRIPSI/sempro
+./KULIAH/SKRIPSI/summarization
+./KULIAH/_english
+./KULIAH/_programming
+./KULIAH/_programming/android
+./KULIAH/_programming/database
+./KULIAH/_programming/geek4geek
+./KULIAH/_programming/java
+./KULIAH/_programming/minded
+./KULIAH/_programming/problemsolving
+./KULIAH/_programming/python
+./KULIAH/_programming/ruby
+./KULIAH/_programming/web
+./projects
+./projects/bashscript
+./projects/cppp
+./projects/pythons
+./projects/pythons/numpy - PyPI_files
+./projects/pythons/pypy
+./projects/pythons/pysandbox
+./projects/pythons/rouge
+./projects/pythons/textrank
+./projects/pythons/textrank-py_files
+./projects/pythons/txt
+./projects/pythons/unsorted
+./projects/pythons/experiment
+./projects/pythons/friendly-fortnight-master
+./projects/pythons/kmeans
+./projects/pythons/mysite
+./projects/pythons/networkx
+./projects/sister17
+./projects/sister17/build
+./projects/sister17/nbproject
+./projects/sister17/src
+./projects/sister17/test
+./projects/web
+./projects/web/ci-crud
+./projects/web/pasar
+./projects/web/taw
+./projects/_c
+./projects/_c/New folder
+./projects/_javas
+./projects/_javas/AnagramGame
+./projects/_javas/client_server
+./projects/_javas/en.wikipedia.org
+./projects/_javas/NetBeansProjectsserver_voice
+./projects/_javas/Sandbox
+./projects/_javas/server_voice
+./projects/_mobiles
+./linux
+./linux/configs
+./linux/lx.basic
+./linux/lx.basic/Bash scripting Tutorial - LinuxConfig.org_files
+./linux/lx.basic/Shell programming with bash_ by example, by counter-example_files
+./Movies
+./Movies/anime
+./Movies/anime/Chuunibyou demo Koi ga Shitai!
+./Movies/anime/R1
+./Movies/camera
+./Movies/chuknorisjowo
+./Movies/munsorted
+./Downloads
+./Downloads/rufus
+./Downloads/rufus/rufus_files
+./Downloads/unassoc_1_4
+./Downloads/Restoration
+./found.000
+./backup
+./backup/.config
+./backup/.config/codeblocks
+./backup/.config/composer
+./backup/.config/geany
+./backup/.config/matplotlib
+./backup/.config/radare2
+./backup/.config/sqlitebrowser
+./backup/.config/wireshark
+./backup/.fonts
+./backup/download
+./backup/home
+./backup/home/defcon2018
+./backup/home/gooctf
+./backup/home/poto
+./backup/home/tereliye
+./backup/htdoc
+./backup/htdoc/apis
+./backup/pic
+./backup/pic/gis
+./backup/pic/Wallpapers
+./databases
+./Documents
+./Documents/ppts
+./Documents/2016
+./Documents/berita-artikel-info
+./Documents/berita-artikel-info/art
+./Documents/berita-artikel-info/companies
+./Documents/berita-artikel-info/countries
+./Documents/berita-artikel-info/figure
+./Documents/berita-artikel-info/geo
+./Documents/berita-artikel-info/science
+./Documents/berita-artikel-info/social
+./Documents/berita-artikel-info/What Kids Need to Learn to Succeed in 2050 – Youth, Now – Medium_files
+./Documents/blog
+./Documents/chtsht
+./Documents/chtsht/triktips
+./Documents/karir
+./Documents/karir/5 Tanda Anda Seorang Pemimpin yang Hebat - Bisnis Liputan6.com_files
+./Documents/karir/6 Dokumen yang Harusnya Gak Perlu Pas Ngelamar Kerja._files
+./Documents/karir/6 Hal yang harus dimiliki seorang pemimpin   merdeka.com_files
+./Documents/karir/akademik
+./Documents/karir/Balqis Sidiqia on Twitter_ __Katanya ada 10 juta lapangan kerja_ Mana_ Sudah 2 tahun saya nganggur, padahal sudah S2._ _Ok tunggu saya bantu carikan loker dihalaman Facebook loker._ Beberapa saat kemudian....… https___t.co_wqnbzMrNvG__files
+./Documents/karir/Cognitive bias cheat sheet – Better Humans_files
+./Documents/karir/Daftar semua jurusan di institusi-institusi internasional_files
+./Documents/karir/How to Make Your Subconscious Mind Work for You – Better Humans_files
+./Documents/karir/Ingin Jadi Pemimpin Sukses  Lakukan 15 Hal Ini Setiap Hari - Bisnis Liputan6.com_files
+./Documents/karir/Kode Bank - Daftar Kode Bank Indonesia_files
+./Documents/karir/Order Complete - Checkout - Sticker Mule_files
+./Documents/karir/Pemilik 5 Sifat Ini Diklaim Jadi Orang Kaya dan Sukses, Kamu Termasuk  - Citizen6 Liputan6.com_files
+./Documents/karir/Saya berumur 17 tahun, dan akan diusir dari rumah pada ulang tahun yang ke-18. Apa yang harus saya lakukan_ Saya tidak punya SIM atau rekening dan saya tidak boleh mencari pekerjaan sampai keluar dari rumah. - Quora_files
+./Documents/karir/Why Did I Reject a Data Scientist Job_ – Towards Data Science_files
+./Documents/comic
+./Documents/dbr
+./Documents/docs
+./Documents/event-pengumuman
+./Documents/games
+./Documents/games/chess1
+./Documents/games/VIT
+./Documents/ibu
+./Documents/Ini Daftar Hari-hari Penting Sepanjang Oktober yang Perlu Diketahui_files
+./Documents/lyrics
+./Documents/lyrics/anime
+./Documents/linax
+./Documents/multimedia
+./Documents/my
+./Documents/security
+./Documents/shopping
+./Documents/tutorpoints
+./Documents/txts
+./Documents/txts/penting
+./Documents/unsorted
+./Documents/wikx
+./Documents/windows
+./Documents/web
+./Documents/web/qr
+./Documents/xls
+./Documents/_religsoul
+./Documents/_religsoul/what
+./Documents/_religsoul/wkwk
+./Documents/xxdpenting
+./Documents/languages

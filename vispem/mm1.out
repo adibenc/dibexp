@@ -1,0 +1,22 @@
+single server q sys 
+
+mean interarrival time       1.000 
+
+mean svc time            3.000 minutes 
+
+number of customers              7 
+
+
+
+Avg delay in queue 0.00000011.3f
+
+
+
+Avg number in queue -0.00000011.3f
+
+
+
+Server utilization 2.55502415.3f
+
+Time simulation ended -146.14338712.3f
+

@@ -1,3 +1,4 @@
+#!/bin/python3
 # quote dalam sequence, lalu di random. customizable . Bisa dipakai di banner terminal linux.
 #
 # cara menampilkan banner di terminal linux.

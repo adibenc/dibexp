@@ -1,5 +1,5 @@
 #!/bin/python3
-
+.git/config
 # run 
 # $ python3 vp1.py
 

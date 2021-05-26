@@ -20,15 +20,26 @@ def parse(sub):
 
     return ret
 
-fname = "en.av.end.srt"
-content = open(fname, "r").read()
-subs = re.findall( patterns['base'] ,content)
-print(len(subs))
-print(subs[0])
-print(parse(subs[0]))
+def getPlain(fname):
+    content = open(fname, "r").read()
+    subs = re.findall( patterns['base'] ,content)
+    print(len(subs))
+    print(subs[0])
+    print(parse(subs[0]))
 
-with open("result", 'w') as f:
-    for sub in subs:
-        p = parse(sub)
-        f.write(p['text'] + "\n")
-    print("finish")
+    with open(fname + ".plain", 'w') as f:
+        for sub in subs:
+            p = parse(sub)
+            ptext = p['text']
+            ptext = ptext.replace("\n"," ")
+            ptext = ptext.replace("...",".")
+            ptext = ptext.replace("..",".")
+            ptext = ptext.replace("<i>","")
+            ptext = ptext.replace("</i>","")
+            # if ptext.find(".") != (len(ptext)-1):
+            print(ptext)
+            f.write(ptext + "\n")
+        print("finish")
+
+fname = "en.av.end.srt"
+getPlain("the-avengers-2012-720p-bluray-x264-yify-1587447126.srt")

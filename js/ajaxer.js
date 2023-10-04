@@ -1,128 +1,108 @@
 class Ajaxer{
-    contentType = false
+	callbacks = {
+		beforeRequest: function(arg){},
+		afterRequest: function(arg){},
+	}
+	
+	withCsrf(){
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+				// Authorization: "Bearer "+access_token
+			}
+		});
 
-    constructor(){
+		return this
+	}
 
-    }
+	setCallbacks(callbacks={}){
+		this.callbacks = callbacks
 
-    setContentType(ct){
-        this.contentType = ct
+		return this
+	}
+	// "GET"
+	async doReq(method, url, data, succCallback = null, errCallback = null){
+		this.callbacks.beforeRequest(this)
 
-        return this
-    }
-    
-    setNullContentType(){
-        return this.setContentType(null)
-    }
+		if(!succCallback){
+			succCallback = this.defaultC1()
+		}
+		if(!errCallback){
+			errCallback = this.defaultE1()
+		}
+		var ret = await $.ajax({
+			type: method,
+			url: url,
+			cache: false,
+			data: data,
+			success: succCallback,
+			processData: false,
+			contentType: false,
+			error: errCallback
+		});;
 
-    resetContentType(){
-        return this.setContentType(false)
-    }
-    
-    setJsonContentType(){
-        return this.setContentType("application/json")
-    }
+		this.callbacks.afterRequest(this)
 
-    getContentType(){
-        return this.contentType
-    }
+		return ret
+	}
 
-    withCsrf(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                // Authorization: "Bearer "+access_token
-            }
-        });
+	defaultC1(){
+		return function(response) {
+			
+		}
+	}
+	
+	defaultE1(){
+		return function(xhr) {
+			alert(xhr.responseJSON.message);
+		}
+	}
 
-        return this
-    }
+	get(url, data, succCallback = null, errCallback = null){
+		return this.doReq("GET", url, data, succCallback, errCallback)
+	}
 
-    // "GET"
-    doReq(method, url, data, succCallback = null, errCallback = null){
-        const ctx = this
+	post(url, data, succCallback = null, errCallback = null){
+		console.log(data)
+		return this.doReq("POST", url, data, succCallback, errCallback)
+	}
 
-        if(!succCallback){
-            succCallback = this.defaultC1()
-        }
-        if(!errCallback){
-            errCallback = this.defaultE1()
-        }
-        let ct = ctx.getContentType()
-        let conf = {
-            type: method,
-            url: url,
-            cache: false,
-            data: ct == "application/json" ? JSON.stringify(data) : data,
-            success: succCallback,
-            processData: false,
-            contentType: ct,
-            error: errCallback
-        }
+	put(url, data, succCallback = null, errCallback = null){
+		data._method = "PUT"
+		return this.doReq("PUT", url, data, succCallback, errCallback)
+	}
 
-		util.setLoading(true)
+	patch(url, data, succCallback = null, errCallback = null){
+		data._method = "PATCH"
+		// console.log(data)
+		data.append("_method", "PATCH");
+		return this.doReq("PATCH", url, data, succCallback, errCallback)
+	}
 
-        return $.ajax(conf);
-    }
-
-    defaultC1(){
-        return function(response) {
-            util.setLoading(false)
-        }
-    }
-    
-    defaultE1(){
-        return function(xhr) {
-            if(xhr.responseJSON){
-                alert(xhr.responseJSON.message);
-                return
-            }
-			util.setLoading(false)
-
-            console.log(xhr)
-        }
-    }
-
-    get(url, data, succCallback = null, errCallback = null){
-        return this.doReq("GET", url, data, succCallback, errCallback)
-    }
-
-    post(url, data, succCallback = null, errCallback = null){
-        console.log(data)
-        return this.doReq("POST", url, data, succCallback, errCallback)
-    }
-
-    put(url, data, succCallback = null, errCallback = null){
-        data._method = "PUT"
-        return this.doReq("PUT", url, data, succCallback, errCallback)
-    }
-
-    patch(url, data, succCallback = null, errCallback = null){
-        data._method = "PATCH"
-        // console.log(data)
-        data.append("_method", "PATCH");
-        return this.doReq("PATCH", url, data, succCallback, errCallback)
-    }
-
-    delete(url, data, succCallback = null, errCallback = null){
-        return this.doReq("DELETE", url, data, succCallback, errCallback)
-    }
+	delete(url, data, succCallback = null, errCallback = null){
+		return this.doReq("DELETE", url, data, succCallback, errCallback)
+	}
 }
 
-// /*test
+var ajaxer = null;
+
+if(true){
+	ajaxer = new Ajaxer();
+}
+
+/*
 
 var ajaxer = new Ajaxer()
 // declare if with x-csrf
 ajaxer.withCsrf()
 
-/*
 ajaxer.get( callurl , null, 
-    function(response){
-        if(response.success){
-            
-        }else{
-            console.log(response.message)
-        }
-    },
+	function(response){
+		if(response.success){
+			
+		}else{
+			console.log(response.message)
+		}
+	},
 )
 */

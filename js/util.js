@@ -47,160 +47,38 @@ var range = function(start, end, step) {
 	return range;
 }
 
-// conditional parsefloat
-String.prototype.cparseFloat = function () {
-	const numericValue = parseFloat(this);
-	return isNaN(numericValue) ? this.toString() : numericValue;
-};
+function sleep(millis) {
+	return new Promise(resolve => setTimeout(resolve, millis));
+}
 
-/**
- * @adibenc
- * 
- * @param {*} attribute 
- * @returns 
- */
+const cl = console.log
+const ce = console.error
 
 Array.prototype.noNull = function() {
 	return this.filter(item => item !== null);
 };
-
-// conditional no null
-Array.prototype.cnoNull = function(attr=[]) {
-	return this.filter(item => {
-		let cond = true
-
-		attr.forEach((e2)=>{
-			cond = cond && item[e2] !== null
-		})
-		
-		return cond
-	});
-};
-
-Array.prototype.groupBy = function(attributes) {
-	return this.reduce((result, item) => {
-		// Ensure that attributes is always an array
-		let key = Array.isArray(attributes)
-		? attributes.map(attr => item[attr]).join(',')
-		: item[attributes];
-		
-		if (!result[key]) {
-			result[key] = [];
-		}
-		
-		result[key].push(item);
-		return result;
-	}, {});
-};
-
-
-// multi col agregate group by
-Array.prototype.groupByAgg = function (attributes, 
-	{ agg = true, aggCols = [],
-		// defaultKey = "L1"
-		defaultKey = "-"
-	}) {
-	agg = agg || true;
-	aggCols = aggCols.length > 0 ? aggCols : ["ptd_target", "ptd_actual"];
-
-	return this.reduce((result, item) => {
-		let key = Array.isArray(attributes)
-		? attributes.map(attr => item[attr]).join(',')
-		: item[attributes];
-	
-	if(!key){
-		key = defaultKey
-	}
-
-	if (!result[key]) {
-		result[key] = {
-			values: [],
-			aggregate: {},
-		};
-	}
-
-	result[key].values.push(item);
-
-	if (agg) {
-		if (Object.keys(result[key].aggregate).length === 0) {
-			// Initialize aggregate with 0 for each specified column
-			for (const col of aggCols) {
-				result[key].aggregate[col] = 0;
-			}
-		}
-
-		for (const col of aggCols) {
-			const value = parseFloat(item[col]);
-			if (!isNaN(value)) {
-				result[key].aggregate[col] += value;
-			}
-		}
-	}
-
-	return result;
-	}, {});
-};
-  
 Array.prototype.first = function() {
 	return this.length > 0 ? this[0] : null;
 }
 
-  
-function getMonth(index) {
-	index = parseInt(index)
-	const indonesianMonths = [
-	  "Jan",
-	  "Feb",
-	  "Mar",
-	  "Apr",
-	  "Mei",
-	  "Jun",
-	  "Jul",
-	  "Agu",
-	  "Sep",
-	  "Okt",
-	  "Nov",
-	  "Des",
-	];
-  
-	if (index >= 1 && index <= 12) {
-	  return indonesianMonths[index - 1]; // Adjust for 0-based array indexing
+const constants = {
+	kl: {
+		pns: "PNS",
+		tni_ad: "TNI AD",
+		tni_au: "TNI AU",
+		tni_al: "TNI AL",
+		polri: "POLRI",
 	}
-	
-	return null;
 }
 
-const cl = console.log;
-
-// arr / list / collection utils
-
-/**
- * zip arrays / list just like in python's zip
- * chatgpt
- * 
- * @param {*} arrays 
- * @returns 
- * 
- */
-function zip(arrays) {
-	// Find the length of the shortest array
-	const minLength = Math.min(...arrays.map((arr) => arr.length));
-
-	// Create an array to hold the zipped result
-	const result = [];
-  
-	for (let i = 0; i < minLength; i++) {
-	  // Create a sub-array for each position in the result
-	  const subArray = arrays.map((arr) => arr[i]);
-	  result.push(subArray);
+// blend of jquery stuffs
+class JQUtil{
+	static setup(t=null){
+		switch(t){
+			// set all select to select2
+			case "s2a":
+				$("select").select2()
+			break
+		}
 	}
-  
-	return result;
-}
-
-function setupS2($el){
-	$el.select2({
-		placeholder: $el.attr("data-s2ph"),
-		allowClear: true,
-	})
 }

@@ -1,5 +1,3 @@
-var print = console.log
-
 /**
  * 
  * 
@@ -10,12 +8,15 @@ var print = console.log
 class NumberSpeller{
     audioList = []
     files = []
-
-    baseSpelling = {}
-    spellingMap = {}
+    useStartZero = false
+    debug = false
 
     getBaseSpelling() {
-        return ["kosong", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"]
+        if(this.useStartZero){
+            return ["kosong", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"]
+        }else{
+            return ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"]
+        }
     }
 
     getSpellingObj() {
@@ -46,12 +47,6 @@ class NumberSpeller{
         }catch(e){
             console.log("err::"+file)
         }
-    }
-
-    resetFiles(){
-        this.files = []
-
-        return this
     }
 
     setFiles(files){
@@ -101,16 +96,23 @@ class NumberSpeller{
             this.pushFile(localFile["ribu"])
         } else if (value < 2000) {
             temp = " seribu"  + this.spell(value - 1000);
-        } else if (value < 1000000) {
-            temp = this.spell(value/1000)  + " ribu"  + this.spell(value % 1000);
-        } else if (value < 1000000000) {
-            temp = this.spell(value/1000000)  + " juta"  + this.spell(value % 1000000);
-        } else if (value < 1000000000000) {
-            temp = this.spell(value/1000000000)  + " milyar"  + this.spell(fmod(value,1000000000));
-        } else if (value < 1000000000000000) {
-            temp = this.spell(value/1000000000000)  + " trilyun"  + this.spell(fmod(value,1000000000000));
+        } else if (value < 1e6) {
+            temp = this.spell(value/1000)  + " ribu"  
+            + this.spell(value % 1000);
+        } else if (value < 1e9) {
+            temp = this.spell(value/1000000)  + " juta"  
+            + this.spell(value % 1000000);
+        } else if (value < 1e12) {
+            // fmod(value, 1000000000)
+            temp = this.spell(value/ 1e9)  + " milyar"  
+                + this.spell( value % 1e9 );
+        } else if (value < 1e15) {
+            temp = this.spell(value/1e12)  + " trilyun"  
+                + this.spell( value % 1e12 );
         }
-        // console.log([value, temp])
+        if(this.debug){
+            console.log([value, temp])
+        }
         return temp;
     }
 }
@@ -120,29 +122,10 @@ class Player{
     idx = 0
     wait = 1000
     playlist = []
-    callbacks = {
-        beforePlay: print,
-        afterPlay: print,
-    }
 
     setPlaylist(playlistL){
         this.playlist = playlistL
         
-        return this
-    }
-
-    setCallbacks(args = null){
-        let callbacks = {}
-        if(args.beforePlay){
-            callbacks.beforePlay = args.beforePlay
-        }
-
-        if(args.afterPlay){
-            callbacks.afterPlay = args.afterPlay
-        }
-
-        this.callbacks = callbacks;
-
         return this
     }
 
@@ -163,126 +146,51 @@ class Player{
         return playlist
     }
 
-    async playsUsingEvent(){
-        console.log("playsUsingEvent")
-        var i = -1
-        var sounds = this.playlist
-        
-        // var f = function(i, sounds) {
-        var f = function() {
-            i++;
-            if (i == sounds.length) return;
-            sounds[i].addEventListener('ended', f);
-            sounds[i].play();
-            print("snc play : ")
-            print(sounds)
-            print("func play : "+i)
-        }
-        await f(i, sounds)
-    }
-
-    async plays(wait = 1000, idx = 0){
-        // var idx = 0
+    plays(wait = 1000){
+        var idx = 0
         // var wait = 1000
 
         var ctx = this;
         var plocal = this.playlist
-
-        if(ctx.idx==0){
-            this.callbacks.beforePlay(this)
-        }
-
-        var timeout = setTimeout(async function(){
+        var timeout = setTimeout(function(){
             ctx.idx++;
             try{
-                var plocalIdx = plocal[ctx.idx]
-
-                if(plocalIdx){
-                    await plocalIdx.play()
-                    wait = plocalIdx.duration == NaN ? 1000 : plocalIdx.duration * 1000;
-                    ctx.plays(wait, ctx.idx); 
-
-                    // why -2? coz plocal / playlist has 2 elements of padding
-                    if((plocal.length-2) == idx){
-                        ctx.callbacks.afterPlay(ctx)
-                        clearTimeout(timeout);
-                        return ctx;
-                    }
-                }
+                plocal[ctx.idx].play()
+                wait = plocal[ctx.idx].duration == NaN ? 1000 : plocal[ctx.idx].duration * 1000;
+                ctx.plays(wait);
             }catch(e){
                 console.log("err play::"+e)
             }
         }, wait);
-        // }, playlist[idx].duration);        
+        // }, playlist[idx].duration);
+        
+        if(plocal.length == idx){
+            clearTimeout(timeout);
+            return ctx;
+        }
     }
 }
 
 // announcer, use player & numberspeller class
 class Announcer{
     template = {
-        keloketKasir:[
+        keloket:[
             'no-antrian.wav',
             'silahkan-masuk-ke.wav',
             'loket-kasir.wav'
         ],
-        keloket:[
-            'no-antrian.wav',
-            'silahkan-masuk-ke.wav',
-            'loket.wav'
-        ],
     }
-
-    callbacks = {
-        player: {
-            beforePlay: print,
-            afterPlay: print,
-        }
-    }
-
-    queue = null
-    player = null
-
-    // if true, then dont play sound
-    isLocked = false
 
     sentence = []
-
-    constructor(){
-        this.player = new Player()
-    }
-
-    setCallbacks(args = null){
-        let callbacks = {}
-
-        if(args.player){
-            if(!callbacks.player){
-                callbacks.player = {}
-            }
-
-            if(args.player.beforePlay){
-                callbacks.player.beforePlay = args.player.beforePlay
-            }
-    
-            if(args.player.afterPlay){
-                callbacks.player.afterPlay = args.player.afterPlay
-            }
-
-            this.player = this.player.setCallbacks(callbacks.player) 
-        }
-
-        this.callbacks = callbacks;
-
-        return this
-    }
 
     assemble(template = "", arg = {}){
         var ctx = this
         switch(template){
             case "keloket":
                 var tl = this.template["keloket"]
-                // console.log(tl)
-                // console.log(tl[0])
-                this.sentence.push("") // add padding, dont delete
+                console.log(tl)
+                console.log(tl[0])
+                this.sentence.push("")
                 this.sentence.push(tl[0])
                 
                 arg.angka.forEach(function(e,i){
@@ -291,10 +199,6 @@ class Announcer{
 
                 this.sentence.push(tl[1])
                 this.sentence.push(tl[2])
-                
-                arg.loket.forEach(function(e,i){
-                    ctx.sentence.push(e)
-                })
             break;
         }
         
@@ -330,33 +234,23 @@ class Announcer{
         return this;
     }
 
-    callLoket(num = 0, loket = 1){
+    callLoket(num = 0){
         this.resetSentence()
         var nSpeller = new NumberSpeller()
         
-        nSpeller.spell(num)
-        var st1 = nSpeller.files
-        
-        nSpeller.resetFiles().spell(loket)
-        var st2 = nSpeller.files
+        var st1 = nSpeller.spell(num)
         
         var audios = this.assemble("keloket", {
-            angka: st1,
-            loket: st2
+            angka: nSpeller.files
         })
-        
+        console.log(this.sentence)
         this.makePlaylist(this.sentence).call()
     }
 
     call(){
-        var player = this.player
-        
-        if(!this.isLocked){
-            player.setPlaylist(this.playlist).plays()
-        }else{
-            print("announcer locked / muted!")
-        }
-        // player.setPlaylist(this.playlist).playsUsingEvent()
+
+        var player = new Player()
+        player.setPlaylist(this.playlist).plays()
     }
 }
 
@@ -377,31 +271,9 @@ class Queue{
     name = "q1"
     desc = "q1 desc"
     role = "admin"
-    kodeLoket = ""
-
     autoAnnounce = false
-    autoChange = true
-    successAjax = false
-
-    prefix = "layanan"
-    doms = {
-        pending: "pending",
-        max: "max",
-        next: "next",
-        called: "called",
-    }
 
     callbacks = {
-        next: noth,
-        previous: noth,
-        announce: noth,
-        refresh: noth,
-        retry: noth,
-        print: noth,
-        take: noth,
-    }
-
-    callbacksAfterAnnounce = {
         next: noth,
         previous: noth,
         announce: noth,
@@ -417,22 +289,6 @@ class Queue{
         this.id = id
         this.name = name
         this.desc = desc
-    }
-
-    setDomValues(){
-        var pref = this.prefix
-        var id = this.id
-        var current = this.current
-        // console.log(current)
-
-        var curnum = current.num < 0 ? 0 : current.num
-
-        $(`#${pref}${id}${this.doms.pending}`).text(current.pending)
-        $(`#${pref}${id}${this.doms.max}`).text(curnum)
-        $(`#${pref}${id}${this.doms.next}`).text(this.getNext())
-        $(`#${pref}${id}${this.doms.called}`).text(current.finished)
-
-        return this
     }
 
     isAdmin() {
@@ -461,10 +317,6 @@ class Queue{
         return this
     }
 
-    getNext(){
-        return this.current.num + 1
-    }
-
     setAnnouncer(ann){
         this.announcer = ann
         return this
@@ -474,35 +326,12 @@ class Queue{
         return this.announcer
     }
 
-    setKodeLoketInt(kodeLoket){
-        return this.setKodeLoket(parseInt(kodeLoket))
-    }
-
-    setKodeLoket(kodeLoket){
-        this.kodeLoket = kodeLoket
-        return this
-    }
-
-    getKodeLoket(){
-        return this.kodeLoket
-    }
-
     getAutoAnnounce() {
 		return this.autoAnnounce;
 	}
 
 	setAutoAnnounce(autoAnnounce) {
         this.autoAnnounce = autoAnnounce;
-        
-        return this
-    }
-    
-    getAutoChange() {
-		return this.autoChange;
-	}
-
-	setAutoChange(autoChange) {
-        this.autoChange = autoChange;
         
         return this
 	}
@@ -518,10 +347,6 @@ class Queue{
         this.announce(this.current.num)
     }
 
-    announceNext(){
-        this.announce(this.getNext())
-    }
-
     take(){
         this.callbacks.take(this)
     }
@@ -533,9 +358,7 @@ class Queue{
 
     retry(){
         console.log("annc::"+this.id+"retry")
-        if(this.getAutoAnnounce()){
-            this.announceCurrent()
-        }
+        this.announceCurrent()
         this.callbacks.retry(this)
         //
     }
@@ -551,33 +374,16 @@ class Queue{
         this.callbacks.previous(this)
     }
 
-    changeCurrent(type = ""){
-        switch(type){
-            case "next":
-                console.log(this.current)
-                this.current.num++
-                this.current.pending--
-                this.current.finished++
-                console.log(this.current)
-            break;
-        }
-        return this
-    }
-
-    async next(){
+    next(){
         console.log("annc::"+this.id+"next")
         //todo : ajax add
         //local
-        
-        await this.callbacks.next(this)
-
-        if(this.getAutoChange()){
-            this.changeCurrent("next")
-        }
+        this.current.num++
+        this.current.pending--
+        this.current.finished++
+        this.callbacks.next(this)
         if(this.getAutoAnnounce()){
-            // await this.announceCurrent()
-            await this.announceNext()
-            this.callbacksAfterAnnounce.next(this)
+            this.announceCurrent()
         }
         
     }
@@ -632,41 +438,6 @@ class Queue{
         }
 
         this.callbacks = callbacks;
-
-        return this
-    }
-    
-    setCallbacksAfterAnnounce(args = null){
-        var noth = function(arg){
-        }
-        var callbacks = args ? args : {
-            next: noth,
-            previous: noth,
-            announce: noth,
-            refresh: noth,
-        };
-
-        if(args.next){
-            callbacks.next = args.next
-        }
-
-        if(args.previous){
-            callbacks.previous = args.previous
-        }
-
-        if(args.announce){
-            callbacks.announce = args.announce
-        }
-
-        if(args.refresh){
-            callbacks.refresh = args.refresh
-        }
-
-        if(args.retry){
-            callbacks.retry = args.retry
-        }
-
-        this.callbacksAfterAnnounce = callbacks;
 
         return this
     }
